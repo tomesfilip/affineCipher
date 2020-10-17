@@ -111,6 +111,7 @@
             this.textBoxEncrypt.Name = "textBoxEncrypt";
             this.textBoxEncrypt.Size = new System.Drawing.Size(614, 34);
             this.textBoxEncrypt.TabIndex = 5;
+            this.textBoxEncrypt.TextChanged += new System.EventHandler(this.textBoxEncrypt_TextChanged);
             // 
             // textBoxDecrypt
             // 

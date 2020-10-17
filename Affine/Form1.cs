@@ -110,7 +110,6 @@ namespace Affine
                 }
             }
             
-            //eng output containing spaces
             string engOutput = engText.ToString().ToUpper();
             filteredTextVal.Text = engOutput;
 
@@ -130,16 +129,8 @@ namespace Affine
             int j = 0;
             foreach (int index in changedIndexes)
             {
-                //encryptedLetters = (index == 2) ? encryptedLetters.Append("XQW") : encryptedLetters.Append(engAlphabet[index].ToString());
+                encryptedLetters = (index == -2) ? encryptedLetters.Append("XQW") : encryptedLetters.Append(engAlphabet[index].ToString());
 
-                if (index == -2)
-                {
-                    encryptedLetters.Append("XQW");
-                }
-                else
-                {
-                    encryptedLetters.Append(engAlphabet[index].ToString());
-                }
                 j++;
             }
 
@@ -151,6 +142,7 @@ namespace Affine
                 {
                     encryptOutput.Text += " ";
                 }
+
                 encryptOutput.Text += encryptedLetters[i].ToString();
             }
 
@@ -161,10 +153,12 @@ namespace Affine
             a = a % sizeOfAlphabet;
             
             for (int i = 1; i < sizeOfAlphabet; i++)
+            {
                 if ((a * i) % sizeOfAlphabet == 1)
                 {
                     return i;
                 }
+            }                
             
             return 0;
         }
@@ -288,9 +282,6 @@ namespace Affine
                     decryption(encryptedText, parA, parB);
                 }
             }
-
-            
-            
         }
 
         private void keyA_ValueChanged(object sender, EventArgs e)
@@ -308,6 +299,11 @@ namespace Affine
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxEncrypt_TextChanged(object sender, EventArgs e)
         {
 
         }
