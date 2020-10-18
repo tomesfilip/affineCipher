@@ -90,11 +90,18 @@ namespace Affine
 
         private void encryption(string openText, sbyte parameterA, sbyte parameterB)
         {
-            char[] specialCharacters = { '.', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', 
-                                         '+', '-', '}', '{', '?', '>', '<', ':', '|', '[', ']', 
+            char[] specialCharacters = { '.', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_',
+                                         '+', '-', '}', '{', '?', '>', '<', ':', '|', '[', ']', '"',
+                                         '/', ',', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'
                                        };
 
-            openText = openText.Trim(specialCharacters).TrimEnd();
+            openText = openText.Trim(specialCharacters).Trim();
+
+            foreach (char c in specialCharacters)
+            {
+                openText = (openText.Contains(c)) ? openText.Replace(c, ' ') : openText;
+            }
+            
 
             string normalizedString = openText.Normalize(NormalizationForm.FormD);
             int[] indexPositions = new int[openText.Length];
