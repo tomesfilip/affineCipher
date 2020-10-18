@@ -126,12 +126,9 @@ namespace Affine
             }
 
             StringBuilder encryptedLetters = new StringBuilder();
-            int j = 0;
             foreach (int index in changedIndexes)
             {
                 encryptedLetters = (index == -2) ? encryptedLetters.Append("XQW") : encryptedLetters.Append(engAlphabet[index].ToString());
-
-                j++;
             }
 
             encryptOutput.Text = "";
@@ -191,11 +188,10 @@ namespace Affine
 
             StringBuilder decryptedText = new StringBuilder();
 
-            int c = 0;
 
             foreach (var index in decryptedIndexes)
             {
-                if (decryptedIndexes[c] == -2)
+                if (index == -2)
                 {
                     decryptedText.Append(" ");
                 }
@@ -203,7 +199,6 @@ namespace Affine
                 {
                     decryptedText.Append(engAlphabet[index]);
                 }
-                c++;
             }
 
             decryptOutput.Text = decryptedText.ToString();
