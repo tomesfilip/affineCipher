@@ -95,13 +95,12 @@ namespace Affine
                                          '/', ',', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'
                                        };
 
-            openText = openText.Trim(specialCharacters).Trim();
+            openText = openText.Trim(specialCharacters).Trim().ToUpper();
 
             foreach (char c in specialCharacters)
             {
                 openText = (openText.Contains(c)) ? openText.Replace(c, ' ') : openText;
             }
-            
 
             string normalizedString = openText.Normalize(NormalizationForm.FormD);
             int[] indexPositions = new int[openText.Length];
@@ -117,7 +116,7 @@ namespace Affine
                 }
             }
             
-            string engOutput = engText.ToString().ToUpper();
+            string engOutput = engText.ToString();
             filteredTextVal.Text = engOutput;
 
             for (int i=0; i < engOutput.Length; i++)
