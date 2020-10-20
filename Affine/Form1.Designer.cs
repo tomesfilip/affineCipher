@@ -157,6 +157,11 @@
             // keyA
             // 
             this.keyA.Location = new System.Drawing.Point(213, 160);
+            this.keyA.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
             this.keyA.Name = "keyA";
             this.keyA.Size = new System.Drawing.Size(46, 34);
             this.keyA.TabIndex = 14;
@@ -165,6 +170,11 @@
             // keyB
             // 
             this.keyB.Location = new System.Drawing.Point(213, 192);
+            this.keyB.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
             this.keyB.Name = "keyB";
             this.keyB.Size = new System.Drawing.Size(46, 34);
             this.keyB.TabIndex = 15;

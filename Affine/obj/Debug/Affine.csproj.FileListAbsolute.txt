@@ -18,3 +18,13 @@ C:\Users\filip\source\repos\affineCipher\Affine\obj\Debug\Affine.csproj.Generate
 C:\Users\filip\source\repos\affineCipher\Affine\obj\Debug\Affine.csproj.CoreCompileInputs.cache
 C:\Users\filip\source\repos\affineCipher\Affine\obj\Debug\Affine.exe
 C:\Users\filip\source\repos\affineCipher\Affine\obj\Debug\Affine.pdb
+C:\Users\tomes\source\repos\affineCipher\Affine\bin\Debug\Affine.exe.config
+C:\Users\tomes\source\repos\affineCipher\Affine\bin\Debug\Affine.exe
+C:\Users\tomes\source\repos\affineCipher\Affine\bin\Debug\Affine.pdb
+C:\Users\tomes\source\repos\affineCipher\Affine\obj\Debug\Affine.csprojAssemblyReference.cache
+C:\Users\tomes\source\repos\affineCipher\Affine\obj\Debug\Affine.Form1.resources
+C:\Users\tomes\source\repos\affineCipher\Affine\obj\Debug\Affine.Properties.Resources.resources
+C:\Users\tomes\source\repos\affineCipher\Affine\obj\Debug\Affine.csproj.GenerateResource.cache
+C:\Users\tomes\source\repos\affineCipher\Affine\obj\Debug\Affine.csproj.CoreCompileInputs.cache
+C:\Users\tomes\source\repos\affineCipher\Affine\obj\Debug\Affine.exe
+C:\Users\tomes\source\repos\affineCipher\Affine\obj\Debug\Affine.pdb

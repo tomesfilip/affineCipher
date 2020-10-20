@@ -26,7 +26,7 @@ namespace Affine
                 b = (b < 0) ? Math.Abs(b) : b;
 
                 int tmp;
-                int divider;
+                double divider;
 
                 if (a > b)
                 {
@@ -38,7 +38,7 @@ namespace Affine
                 while (remainder != 0)
                 {
                     divider = b / a;
-                    remainder = b - divider * a;
+                    remainder = b - (int)Math.Floor(divider) * a;
 
                     if (remainder == 0)
                     {
@@ -67,11 +67,11 @@ namespace Affine
             return -1;
         }
 
-        private int changeIndexes(int index, sbyte parA, sbyte parB)
+        private int changeIndex(int index, int parA, int parB)
         {
             if (index >= 0)
             {
-                int changedIndex = parA * index + parB % engAlphabet.Length;
+                int changedIndex = (parA * index + parB) % engAlphabet.Length;
                 while (changedIndex > (engAlphabet.Length - 1))
                 {
                     changedIndex -= engAlphabet.Length;
@@ -88,7 +88,7 @@ namespace Affine
         }
 
 
-        private void encryption(string openText, sbyte parameterA, sbyte parameterB)
+        private void encryption(string openText, int parameterA, int parameterB)
         {
             char[] specialCharacters = { '.', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_',
                                          '+', '-', '}', '{', '?', '>', '<', ':', '|', '[', ']', '"',
@@ -128,7 +128,7 @@ namespace Affine
 
             for(int i=0; i < engOutput.Length; i++)
             {
-                changedIndexes[i] = changeIndexes(indexPositions[i], parameterA, parameterB);
+                changedIndexes[i] = changeIndex(indexPositions[i], parameterA, parameterB);
             }
 
             StringBuilder encryptedLetters = new StringBuilder();
@@ -172,7 +172,7 @@ namespace Affine
             return (decryptedIndex < 0) ? decryptedIndex + engAlphabet.Length : decryptedIndex;
         }
 
-        private void decryption(string encryptedText, sbyte keyA, sbyte keyB)
+        private void decryption(string encryptedText, int keyA, int keyB)
         {
             encryptedText = encryptedText.Replace(" ", "");
             encryptedText = (encryptedText.Contains("XQW")) ? encryptedText.Replace("XQW", " ") : encryptedText;
@@ -189,7 +189,10 @@ namespace Affine
 
             for (int i = 0; i < encryptedTextIndexes.Length; i++)
             {
-                decryptedIndexes[i] = (encryptedTextIndexes[i] == -2) ? decryptedIndexes[i] = -2 : decryptedIndexes[i] = decryptIndex(encryptedTextIndexes[i], multInversion, keyB); 
+                decryptedIndexes[i] = 
+                    (encryptedTextIndexes[i] == -2) ? 
+                    decryptedIndexes[i] = -2 : 
+                    decryptedIndexes[i] = decryptIndex(encryptedTextIndexes[i], multInversion, keyB); 
             }
 
             StringBuilder decryptedText = new StringBuilder();
@@ -229,12 +232,12 @@ namespace Affine
             {
                 MessageBox.Show("If you want to encrypt text, you should enter it.");
             }
-            sbyte parA = -1;
-            sbyte parB = -1;
+            int parA = -1;
+            int parB = -1;
             try
             {
-                parA = Convert.ToSByte(keyA.Text);
-                parB = Convert.ToSByte(keyB.Text);
+                parA = Convert.ToInt32(keyA.Text);
+                parB = Convert.ToInt32(keyB.Text);
             }
             catch (Exception ex)
             {
@@ -261,13 +264,13 @@ namespace Affine
             }
             else
             {
-                sbyte parA = -1;
-                sbyte parB = -1;
+                int parA = -1;
+                int parB = -1;
 
                 try
                 {
-                    parA = Convert.ToSByte(keyA.Text);
-                    parB = Convert.ToSByte(keyB.Text);
+                    parA = Convert.ToInt32(keyA.Text);
+                    parB = Convert.ToInt32(keyB.Text);
                 }
                 catch (Exception ex)
                 {
